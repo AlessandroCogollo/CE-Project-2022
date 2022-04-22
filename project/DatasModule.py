@@ -1,3 +1,5 @@
+import array
+
 import pandas as pd
 import Exceptions as ex
 
@@ -32,7 +34,10 @@ class DatasModule:
                 return sheet['Agricultural added value']
         elif data_required == 10:
             sheet = pd.read_csv('../docs/input/hourly_producibility.csv')
-            # return whole sheet
-            return sheet
+            df = pd.DataFrame(data=sheet)
+            hourly_producibility = array.array('f', [])
+            for i in range(1, 108):
+                # TODO: hourly_producibility.append(df.iloc[i:i, 1:].sum(axis=1))
+            return hourly_producibility
         else:
             raise ex.IllegalDatasRequired
