@@ -1,6 +1,8 @@
 from enum import Enum
 
 
+# TODO: optimize db queries
+
 class Datas(Enum):
     # --------Photovoltaic Installed (installed.csv)-------
     installed_power_LAND = 0,
