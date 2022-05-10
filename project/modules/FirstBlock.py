@@ -3,6 +3,7 @@ import math
 from ..utils import ArithmeticModule as am
 from ..utils import DatasModule as dm
 
+
 # block 1 & 2
 class FirstModule:
     @staticmethod
@@ -42,7 +43,8 @@ class FirstModule:
         elif typology == 1:  # get syntheticalIndicatorROOF
             for i in range(len(domestic_consumption)):
                 domestic_consumption_per_capita.append(domestic_consumption[i] / province_population[i])
-            indicator_domestic_consumption_per_capita = am.base_distribution(domestic_consumption_per_capita, am.mean(domestic_consumption_per_capita))
+            indicator_domestic_consumption_per_capita = am.base_distribution(domestic_consumption_per_capita,
+                                                                             am.mean(domestic_consumption_per_capita))
             for i in range(len(indicator_equivalent_hours_pv)):
                 synthetical_indicator.append(math.exp(weight_equivalent_hours_pv
                                                       * math.log(indicator_equivalent_hours_pv[i])
