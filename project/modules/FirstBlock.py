@@ -1,14 +1,13 @@
 import math
 
 from ..utils import ArithmeticModule as am
-from ..utils import DatasModule as dm
 
 
 # block 1 & 2
 class FirstModule:
     @staticmethod
-    def get_final_distribution(typology, weight_equivalent_hours_pv, weight_agricultural_added_value,
-                               weight_domestic_consumption_per_capita=None, weight_taxable_income_per_capita=None):
+    def get_final_distribution(data_obj, typology, weight_equivalent_hours_pv, weight_agricultural_added_value,
+                               weight_domestic_consumption_per_capita, weight_taxable_income_per_capita):
         surface = []
         synthetical_indicator = []
         agricultural_added_value = []
@@ -18,16 +17,16 @@ class FirstModule:
         taxable_income_per_capita = []
 
         if typology == 0:  # get ROOF
-            surface = dm.get_datas(4)
-            agricultural_added_value = dm.get_datas(9)
+            surface = data_obj.built_surface
+            agricultural_added_value = data_obj.agricultural_added_value
         elif typology == 1:  # get LAND
-            surface = dm.get_datas(0)
-            domestic_consumption = dm.get_datas(5)
-            province_population = dm.get_datas(6)
-            taxable_income_per_capita = dm.get_datas(7)
+            surface = data_obj.arable_land_area
+            domestic_consumption = data_obj.domestic_consumption
+            province_population = data_obj.province_population
+            taxable_income_per_capita = data_obj.taxable_income_per_capita
         else:  # return ERROR
             print("ERROR")
-        annual_sum_equivalent_hours_pv = dm.get_datas(10)
+        annual_sum_equivalent_hours_pv = data_obj.hourly_producibility
         base_distribution = am.base_distribution(surface, am.sum_array(surface))
         indicator_equivalent_hours_pv = am.base_distribution(annual_sum_equivalent_hours_pv,
                                                              am.mean(annual_sum_equivalent_hours_pv))

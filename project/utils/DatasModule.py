@@ -26,9 +26,6 @@ class DatasModule:
         array_query = cur.fetchall()
         return array_query
 
-    def get_installed_power_land(self):
-        return self.installed_power_LAND
-
     def __init__(self):
         # open connection
         self.cur = DatasModule.get_connection_cursor(self)
