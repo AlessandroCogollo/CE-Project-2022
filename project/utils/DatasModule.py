@@ -43,13 +43,14 @@ class DatasModule:
         self.agricultural_added_value = DatasModule.set_query('"Agricultural added value "', "variables", self.cur)
         # --Hourly Producibility (hourly_producibility..csv)---
         self.hourly_producibility = []
-        provinces = self.set_query('"Province"', "hourly_producibility", self.cur)
-        self.cur.execute("Select * FROM hourly_producibility LIMIT 0")
-        colList = [desc[0] for desc in self.cur.description]
+        self.cur.execute("SELECT * FROM hourly_producibility LIMIT 0")
+        provinces = [desc[0] for desc in self.cur.description]
         for province in provinces:
-            sum_producibility = 0
-            for colName in colList:
-                sum_producibility += self.cur.execute("""SELECT """ + colName + """ FROM hourly_producibility WHERE Province =""" + province)
-            self.hourly_producibility.append(sum_producibility)
+            if province != 'Province':
+                province = "\"" + province + "\""
+                self.cur.execute("""SELECT SUM(hourly_producibility.""" + province + """) FROM hourly_producibility""")
+                query = self.cur.fetchall()
+                self.hourly_producibility.append(query)
+        print(self.hourly_producibility)
         # close connection
         DatasModule.close_connection(self)
