@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Add a New Message {% endblock %}</h1>
+    <form method="post">
+        <label>Goals</label>
+        <br>
+        <input type="text" name="ScenarioPVpower"
+               placeholder="Scenario PV power [52000 MV]"
+               value="{{ request.form['ScenarioPVpower'] }}"></input>
+        <input type="text" name="PercentagePVtargetROOF"
+               placeholder="Percentage PV target ROOF [40%]"
+               value="{{ request.form['PercentagePVtargetROOF'] }}"></input>
+        <br>
+        <label>Coefficients</label>
+        <br>
+        <input type="text" name="PVtargetROOF"
+               placeholder="PV Occupation Coefficient Target ROOF [km2/MW] [0.005]"
+               value="{{ request.form['PVtargetROOF'] }}"></input>
+        <input type="text" name="PVbaseROOF"
+               placeholder="PV Occupation Coefficient Base ROOF [km2/MW] [0.008]"
+               value="{{ request.form['PVbaseROOF'] }}"></input>
+        <input type="text" name="PVtargetLAND"
+               placeholder="PV Density Target LAND [MW/km2] [90.9]"
+               value="{{ request.form['PVtargetLAND'] }}"></input>
+        <br>
+        <label>Advance Weight [0]</label>
+        <br>
+        <input type="text" name="WeightEquivalentHoursPV"
+               placeholder="Weight Equivalent Hours PV"
+               value="{{ request.form['WeightEquivalentHoursPV'] }}"></input>
+        <input type="text" name="WeightDomesticConsumptionPerCapita"
+               placeholder="Weight Domestic Consumption Per Capita"
+               value="{{ request.form['WeightDomesticConsumptionPerCapita'] }}"></input>
+        <input type="text" name="WeightTaxableIncomePerCapita"
+               placeholder="Weight Taxable Income Per Capita"
+               value="{{ request.form['WeightTaxableIncomePerCapita'] }}"></input>
+        <input type="text" name="WeightAgriculturalAddedValue"
+               placeholder="Weight Agricultural Added Value"
+               value="{{ request.form['WeightAgriculturalAddedValue'] }}"></input>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
