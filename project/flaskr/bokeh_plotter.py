@@ -14,23 +14,6 @@ def plot():
     installed = psql.read_sql('SELECT * FROM installed', connection)
     shapefile = gpd.read_postgis('SELECT den_prov, cod_prov, geom FROM borders', connection)
 
-    # TODO: refactor province mapping --
-    shapefile.loc[shapefile.cod_prov == 1, 'den_prov'] = 'Torino'
-    shapefile.loc[shapefile.cod_prov == 10, 'den_prov'] = 'Genova'
-    shapefile.loc[shapefile.cod_prov == 15, 'den_prov'] = 'Milano'
-    shapefile.loc[shapefile.cod_prov == 27, 'den_prov'] = 'Venezia'
-    shapefile.loc[shapefile.cod_prov == 37, 'den_prov'] = 'Bologna'
-    shapefile.loc[shapefile.cod_prov == 48, 'den_prov'] = 'Firenze'
-    shapefile.loc[shapefile.cod_prov == 58, 'den_prov'] = 'Roma'
-    shapefile.loc[shapefile.cod_prov == 63, 'den_prov'] = 'Napoli'
-    shapefile.loc[shapefile.cod_prov == 72, 'den_prov'] = 'Bari'
-    shapefile.loc[shapefile.cod_prov == 80, 'den_prov'] = 'Reggio di Calabria'
-    shapefile.loc[shapefile.cod_prov == 82, 'den_prov'] = 'Palermo'
-    shapefile.loc[shapefile.cod_prov == 83, 'den_prov'] = 'Messina'
-    shapefile.loc[shapefile.cod_prov == 87, 'den_prov'] = 'Catania'
-    shapefile.loc[shapefile.cod_prov == 92, 'den_prov'] = 'Cagliari'
-    # ---------------------------------
-
     merged_df = shapefile.merge(installed, left_on='den_prov', right_on='Province')
     merged_json = json.loads(merged_df.to_json())
     json_data = json.dumps(merged_json)

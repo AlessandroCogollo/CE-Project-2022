@@ -1,23 +1,22 @@
 import array
 import math
 
-import ArithmeticModule
-from DatasModule import DatasModule
 from project.modules.ThirdBlock import ThirdModule
+from project.utils import ArithmeticModule
+from project.utils.DatasModule import DatasModule
 
 
-class PlotterModule:
+class FinalValuesModule:
 
     @staticmethod
-    def get_actual_pv_occupation_roof(data_obj, pv_occupation_coefficient_base_roof, self):
+    def get_actual_pv_occupation_roof(data_obj, params):
         installed_power_roof = data_obj.installed_power_ROOF
         built_surface = data_obj.built_surface
         actual_pv_occupation_roof = array.array('f', [])
         for i in range(0, len(installed_power_roof)):
             actual_pv_occupation_roof.append(
-                (installed_power_roof[i] * pv_occupation_coefficient_base_roof) / built_surface[i])
-        self.actual_pv_occupation_roof = actual_pv_occupation_roof
-        return self.actual_pv_occupation_roof
+                (installed_power_roof[i] * params.PVbaseROOF) / built_surface[i])
+        return actual_pv_occupation_roof
 
     @staticmethod
     def get_target_pv_occupied_surface_land(data_obj, percentage_pv_target_roof, weight_equivalent_hours_pv,

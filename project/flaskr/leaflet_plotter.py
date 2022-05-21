@@ -1,48 +1,47 @@
-import json
+import sys
 
 import folium
 import geopandas as gpd
 import pandas.io.sql as psql
+from numpy import size
 
-from project.utils import ConnectionHandler
+from project.utils import ConnectionHandler, FinalValuesModule
+from project.utils.DatasModule import DatasModule
 
-centre_coords = [42.3, 12]
-my_map = folium.Map(location=centre_coords, zoom_start=6)
 
-# ---------------
+def plot(params):
 
-connection = ConnectionHandler.get_connection(ConnectionHandler)
-installed = psql.read_sql('SELECT * FROM installed', connection)
-shapefile = gpd.read_postgis('SELECT den_prov, cod_prov, geom FROM borders', connection)
+    print('This is standard output', file=sys.stdout)
+    print("Lorem Ipsum")
 
-merged_df = shapefile.merge(installed, left_on='den_prov', right_on='Province')
+    centre_coords = [42.3, 12]
+    my_map = folium.Map(location=centre_coords, zoom_start=6)
 
-# merged_df.to_csv('merged.csv')
-# merged_df = merged_df.set_index('den_prov')['Land']
-json_to_load = merged_df.to_json()
-merged_json = json.loads(json_to_load)
-# geo_source = json.dumps(merged_json)
+    connection = ConnectionHandler.get_connection(ConnectionHandler)
+    installed = psql.read_sql('SELECT * FROM installed', connection)
+    shapefile = gpd.read_postgis('SELECT cod_prov, den_uts, geom FROM borders', connection)
 
-# TODO: refer to key_on
-key = []
-for i in range(10):
-    key.append(float(merged_json["features"][i]["properties"]["Land"]))
-print(key)
+    # ----------------------------------------------------
 
-folium.Choropleth(
-    geo_data=shapefile,
-    name="Land",
-    data=merged_df,
-    columns=["den_prov", "Land"],
-    key_on=key,
-    fill_color="BuPu",
-    fill_opacity=0.7,
-    line_opacity=0.2,
-    legend_name="Land Consumption",
-).add_to(my_map)
+    data_obj = DatasModule()
+    actual_pv_occupation_roof = FinalValuesModule.FinalValuesModule.get_actual_pv_occupation_roof(data_obj, params)
 
-# folium.LayerControl().add_to(my_map)
+    # ----------------------------------------------------
 
-# ---------------
-outfp = "templates/base_map.html"
-my_map.save(outfp)
+    # LAND
+    folium.Choropleth(
+        geo_data=shapefile,
+        name="Land Consumption",
+        data=installed,
+        columns=["Province", "Land"],
+        key_on='feature.properties.den_uts',
+        fill_color="YlGn",
+        fill_opacity=0.8,
+        line_opacity=0.5,
+        legend_name="Land Consumption",
+    ).add_to(my_map)
+
+    folium.LayerControl().add_to(my_map)
+
+    out = "templates/base_map.html"
+    my_map.save(out)
