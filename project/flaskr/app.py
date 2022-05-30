@@ -32,7 +32,7 @@ def create():
         # bokeh_plotter.set_param(bokeh_plotter, parameters)
         # bokeh_plotter.plot()
 
-    return render_template('create.html')
+    return render_template('map.html')
 
 
 class Parameters:
