@@ -12,10 +12,10 @@ def get_connection(self):
 
 
 def get_cursor(self):
-    cursor = self.connection.cursor()
-    cursor.execute('SELECT %s as connected;', ('Connection to postgres successful!',))
-    print(cursor.fetchone())
-    return cursor
+    self.cursor = self.connection.cursor()
+    self.cursor.execute('SELECT %s as connected;', ('Connection to postgres successful!',))
+    print(self.cursor.fetchone())
+    return self.cursor
 
 
 def close_connection(self):

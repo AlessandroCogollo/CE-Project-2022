@@ -1,30 +1,28 @@
-import sys
+import json
 
 import folium
 import geopandas as gpd
+import pandas as pd
 import pandas.io.sql as psql
-from numpy import size
 
-from project.utils import ConnectionHandler, FinalValuesModule
+from project.utils import ConnectionHandler
 from project.utils.DatasModule import DatasModule
 
 
-def plot(params):
-
-    print('This is standard output', file=sys.stdout)
-    print("Lorem Ipsum")
+def plot():
 
     centre_coords = [42.3, 12]
     my_map = folium.Map(location=centre_coords, zoom_start=6)
 
     connection = ConnectionHandler.get_connection(ConnectionHandler)
-    installed = psql.read_sql('SELECT * FROM installed', connection)
+    provinces = psql.read_sql('SELECT province FROM installed', connection)
     shapefile = gpd.read_postgis('SELECT cod_prov, den_uts, geom FROM borders', connection)
 
     # ----------------------------------------------------
 
-    data_obj = DatasModule()
-    actual_pv_occupation_roof = FinalValuesModule.FinalValuesModule.get_actual_pv_occupation_roof(data_obj, params)
+    dm = DatasModule()
+    dmodule = pd.DataFrame(data=dm.installed_power_LAND, columns=["land"])
+    provinces.insert(1, 'land', dmodule)
 
     # ----------------------------------------------------
 
@@ -32,8 +30,8 @@ def plot(params):
     folium.Choropleth(
         geo_data=shapefile,
         name="Land Consumption",
-        data=installed,
-        columns=["Province", "Land"],
+        data=provinces,
+        columns=["province", "land"],
         key_on='feature.properties.den_uts',
         fill_color="YlGn",
         fill_opacity=0.8,

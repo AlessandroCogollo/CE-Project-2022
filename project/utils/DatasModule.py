@@ -9,13 +9,13 @@ class DatasModule:
         self.conn = ConnectionHandler.get_connection(self)
         self.cur = ConnectionHandler.get_cursor(self)
         # --------Photovoltaic Installed (installed.csv)-------
-        self.installed_power_LAND = np.asarray(ConnectionHandler.set_query('"Land"', "installed", self.cur),
+        self.installed_power_LAND = np.asarray(ConnectionHandler.set_query('land', "installed", self.cur),
                                                dtype=float)
-        self.installed_power_ROOF = np.asarray(ConnectionHandler.set_query('"Roof"', "installed", self.cur),
+        self.installed_power_ROOF = np.asarray(ConnectionHandler.set_query('roof', "installed", self.cur),
                                                dtype=float)
-        self.other_areas_LAND = np.asarray(ConnectionHandler.set_query('"Other Land"', "installed", self.cur),
+        self.other_areas_LAND = np.asarray(ConnectionHandler.set_query('otherland', "installed", self.cur),
                                            dtype=float)
-        self.other_areas_ROOF = np.asarray(ConnectionHandler.set_query('"Other Roof"', "installed", self.cur),
+        self.other_areas_ROOF = np.asarray(ConnectionHandler.set_query('otherroof', "installed", self.cur),
                                            dtype=float)
         # --------Variables (variables.csv)--------------------
         self.built_surface = np.asarray(ConnectionHandler.set_query('"Built surface [km2]"', "variables", self.cur),
@@ -33,7 +33,7 @@ class DatasModule:
             ConnectionHandler.set_query('"Agricultural added value "', "variables",
                                         self.cur), dtype=float)
         # --Hourly Producibility (hourly_producibility..csv)---
-        self.hourly_producibility = []
+        hourly_producibility = []
         self.cur.execute("SELECT * FROM hourly_producibility LIMIT 0")
         provinces = [desc[0] for desc in self.cur.description]
         for province in provinces:
@@ -41,7 +41,7 @@ class DatasModule:
                 province = "\"" + province + "\""
                 self.cur.execute("""SELECT SUM(hourly_producibility.""" + province + """) FROM hourly_producibility""")
                 query = self.cur.fetchall()
-                self.hourly_producibility.append(query)
-        print(self.hourly_producibility)
+                hourly_producibility.append(query)
+        self.hourly_producibility = np.asarray(hourly_producibility)
         # close connection
         ConnectionHandler.close_connection(self)

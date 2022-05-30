@@ -28,7 +28,7 @@ def create():
         p9 = request.form.get('WeightAgriculturalAddedValue', type=float)
 
         parameters = Parameters(p1, p2, p3, p4, p5, p6, p7, p8, p9)
-        leaflet_plotter.plot(parameters)
+        leaflet_plotter.plot()
         # bokeh_plotter.set_param(bokeh_plotter, parameters)
         # bokeh_plotter.plot()
 
