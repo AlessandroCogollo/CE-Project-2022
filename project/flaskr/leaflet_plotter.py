@@ -27,7 +27,7 @@ def plot():
     # ----------------------------------------------------
 
     # LAND
-    folium.Choropleth(
+    addLand = folium.Choropleth(
         geo_data=shapefile,
         name="Land Consumption",
         data=provinces,
@@ -37,6 +37,26 @@ def plot():
         fill_opacity=0.8,
         line_opacity=0.5,
         legend_name="Land Consumption",
+    ).add_to(my_map)
+
+    # ----------------------------------------------------
+
+    dmodule = pd.DataFrame(data=dm.installed_power_ROOF, columns=["roof"])
+    provinces.insert(1, 'roof', dmodule)
+
+    # ----------------------------------------------------
+
+    # ROOF
+    addRoof = folium.Choropleth(
+        geo_data=shapefile,
+        name="Roof Consumption",
+        data=provinces,
+        columns=["province", "roof"],
+        key_on='feature.properties.den_uts',
+        fill_color="YlOrRd",
+        fill_opacity=0.8,
+        line_opacity=0.5,
+        legend_name="Roof Consumption",
     ).add_to(my_map)
 
     folium.LayerControl().add_to(my_map)
