@@ -1,16 +1,15 @@
-import json
-
 import folium
 import geopandas as gpd
 import pandas as pd
 import pandas.io.sql as psql
+import project.utils.ArithmeticModule as am
 
+from project.modules.Old.FirstModule import FirstModule
 from project.utils import ConnectionHandler
 from project.utils.DatasModule import DatasModule
 
 
-def plot():
-
+def plot(parameters):
     centre_coords = [42.3, 12]
     my_map = folium.Map(location=centre_coords, zoom_start=6)
 
@@ -58,6 +57,28 @@ def plot():
         line_opacity=0.5,
         legend_name="Roof Consumption",
     ).add_to(my_map)
+
+    # -----------------------------------------------------
+
+    dmodule = pd.DataFrame(data=FirstModule().get_base_distribution(DatasModule(), parameters, 0),
+                           columns=["base_distribution_roof"])
+    provinces.insert(1, 'base_distribution_roof', dmodule)
+
+    # base_distribution_roof
+    addBaseDistributionRoof = folium.Choropleth(
+        geo_data=shapefile,
+        name="Base Distribution Roof",
+        data=provinces,
+        columns=["province", "base_distribution_roof"],
+        key_on='feature.properties.den_uts',
+        fill_color="BuPu",
+        fill_opacity=0.8,
+        line_opacity=0.5,
+        legend_name="Base Distribution Roof",
+    ).add_to(my_map)
+
+    print(am.sum_array(DatasModule().built_surface))
+    provinces.to_csv("provinces.csv")
 
     folium.LayerControl().add_to(my_map)
 

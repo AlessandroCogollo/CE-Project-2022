@@ -1,5 +1,8 @@
+import array
+
 from project.utils import ConnectionHandler
 import numpy as np
+import pandas as pd
 
 
 class DatasModule:
@@ -8,40 +11,50 @@ class DatasModule:
         # open connection
         self.conn = ConnectionHandler.get_connection(self)
         self.cur = ConnectionHandler.get_cursor(self)
+
         # --------Photovoltaic Installed (installed.csv)-------
-        self.installed_power_LAND = np.asarray(ConnectionHandler.set_query('land', "installed", self.cur),
-                                               dtype=float)
-        self.installed_power_ROOF = np.asarray(ConnectionHandler.set_query('roof', "installed", self.cur),
-                                               dtype=float)
-        self.other_areas_LAND = np.asarray(ConnectionHandler.set_query('otherland', "installed", self.cur),
-                                           dtype=float)
-        self.other_areas_ROOF = np.asarray(ConnectionHandler.set_query('otherroof', "installed", self.cur),
-                                           dtype=float)
+        self.installed_power_LAND = [item for sublist in
+                                     np.array(ConnectionHandler.set_query('land', "installed", self.cur),
+                                              dtype=float) for item in sublist]
+        self.installed_power_ROOF = [item for sublist in
+                                     np.array(ConnectionHandler.set_query('roof', "installed", self.cur),
+                                              dtype=float) for item in sublist]
+        self.other_areas_LAND = [item for sublist in
+                                 np.array(ConnectionHandler.set_query('otherland', "installed", self.cur),
+                                          dtype=float) for item in sublist]
+        self.other_areas_ROOF = [item for sublist in
+                                 np.array(ConnectionHandler.set_query('otherroof', "installed", self.cur),
+                                          dtype=float) for item in sublist]
+
         # --------Variables (variables.csv)--------------------
-        self.built_surface = np.asarray(ConnectionHandler.set_query('"Built surface [km2]"', "variables", self.cur),
-                                        dtype=float)
-        self.domestic_consumption = np.asarray(
+        self.built_surface = [item for sublist in
+                              np.array(ConnectionHandler.set_query('"Built surface [km2]"', "variables", self.cur),
+                                       dtype=float) for item in sublist]
+        self.domestic_consumption = [item for sublist in np.array(
             ConnectionHandler.set_query('"Domestic consumption [GWh]"', "variables", self.cur), dtype=float)
-        self.province_population = np.asarray(ConnectionHandler.set_query('"Population"', "variables", self.cur),
-                                              dtype=float)
-        self.taxable_income_per_capita = np.asarray(
+                                     for item in sublist]
+        self.province_population = [item for sublist in
+                                    np.array(ConnectionHandler.set_query('"Population"', "variables", self.cur),
+                                             dtype=float)
+                                    for item in sublist]
+        self.taxable_income_per_capita = [item for sublist in np.array(
             ConnectionHandler.set_query('"Taxable income per capita"', "variables",
                                         self.cur), dtype=float)
-        self.arable_land_area = np.asarray(
+                                          for item in sublist]
+        self.arable_land_area = [item for sublist in np.array(
             ConnectionHandler.set_query('"Arable land area [km2]"', "variables", self.cur), dtype=float)
-        self.agricultural_added_value = np.asarray(
+                                 for item in sublist]
+        self.agricultural_added_value = [item for sublist in np.array(
             ConnectionHandler.set_query('"Agricultural added value "', "variables",
-                                        self.cur), dtype=float)
+                                        self.cur), dtype=float) for item in sublist]
+
         # --Hourly Producibility (hourly_producibility..csv)---
         hourly_producibility = []
-        self.cur.execute("SELECT * FROM hourly_producibility LIMIT 0")
-        provinces = [desc[0] for desc in self.cur.description]
-        for province in provinces:
-            if province != 'Province':
-                province = "\"" + province + "\""
-                self.cur.execute("""SELECT SUM(hourly_producibility.""" + province + """) FROM hourly_producibility""")
-                query = self.cur.fetchall()
-                hourly_producibility.append(query)
-        self.hourly_producibility = np.asarray(hourly_producibility)
+        df = pd.read_sql('SELECT * FROM hourly_producibility', self.conn)
+        for col in df:
+            if col != 'Province':
+                hourly_producibility.append(df[col].sum())
+        self.hourly_producibility = hourly_producibility
+
         # close connection
         ConnectionHandler.close_connection(self)
