@@ -1,0 +1,108 @@
+﻿Region,Province,Land,Roof,Other Land,Other Roof
+Abruzzo,Chieti,116.4,117.5,0,0
+Abruzzo,L'Aquila,100,68.7,0,0
+Abruzzo,Pescara,53.2,38.7,0,0
+Abruzzo,Teramo,129.5,118.1,0,0
+Basilicata,Matera,142.6,39.7,0,0
+Basilicata,Potenza,117.7,71.1,0,0
+Calabria,Catanzaro,70.5,67.7,0,0
+Calabria,Cosenza,82.2,168.1,0,0
+Calabria,Crotone,7.3,28.9,0,0
+Calabria,Reggio di Calabria,10.1,60.2,0,0
+Calabria,Vibo Valentia,13.1,28.3,0,0
+Campania,Avellino,16.9,69.2,0,0
+Campania,Benevento,18.9,47.6,0,0
+Campania,Caserta,96.2,161.5,0,0
+Campania,Napoli,52.4,119.2,0,0
+Campania,Salerno,104.2,147.1,0,0
+Emilia Romagna,Bologna,81.4,269.3,0,0
+Emilia Romagna,Ferrara,80.4,119.8,0,0
+Emilia Romagna,Forli'-Cesena,86.7,145.1,0,0
+Emilia Romagna,Modena,58.1,216.1,0,0
+Emilia Romagna,Parma,82.9,112.9,0,0
+Emilia Romagna,Piacenza,66.3,119.7,0,0
+Emilia Romagna,Ravenna,260.6,131.7,0,0
+Emilia Romagna,Reggio nell'Emilia,31.1,143.6,0,0
+Emilia Romagna,Rimini,21.2,73.2,0,0
+Friuli Venezia Giulia,Gorizia,2.6,39.7,0,0
+Friuli Venezia Giulia,Pordenone,31.8,131.9,0,0
+Friuli Venezia Giulia,Trieste,8.9,20.3,0,0
+Friuli Venezia Giulia,Udine,96,214,0,0
+Lazio,Frosinone,81.7,95.1,0,0
+Lazio,Latina,158.9,98.9,0,0
+Lazio,Rieti,2.4,24.7,0,0
+Lazio,Roma,169.3,296.1,0,0
+Lazio,Viterbo,381,77.2,0,0
+Liguria,Genova,0.5,27.8,0,0
+Liguria,Imperia,0.7,26.9,0,0
+Liguria,La Spezia,1.5,22.7,0,0
+Liguria,Savona,3.4,29.1,0,0
+Lombardia,Bergamo,27.3,299.3,0,0
+Lombardia,Brescia,61.9,418.3,0,0
+Lombardia,Como,2.3,94.3,0,0
+Lombardia,Cremona,53.7,186.7,0,0
+Lombardia,Lecco,2.9,50.9,0,0
+Lombardia,Lodi,29.8,96.9,0,0
+Lombardia,Mantova,54.5,173.5,0,0
+Lombardia,Milano,30.6,315.2,0,0
+Lombardia,Monza e della Brianza,4.3,105.7,0,0
+Lombardia,Pavia,61.1,129.3,0,0
+Lombardia,Sondrio,1.1,51.6,0,0
+Lombardia,Varese,6.6,141,0,0
+Marche,Ancona,139.4,165.1,0,0
+Marche,Ascoli Piceno,54.5,65.9,0,0
+Marche,Fermo,69.2,40.1,0,0
+Marche,Macerata,197.2,115.3,0,0
+Marche,Pesaro e Urbino,132.8,120.8,0,0
+Molise,Campobasso,88.4,46.9,0,0
+Molise,Isernia,22.1,18.1,0,0
+Piemonte,Alessandria,151.8,110.5,0,0
+Piemonte,Asti,20.2,69,0,0
+Piemonte,Biella,33.4,58.6,0,0
+Piemonte,Cuneo,212.5,353.2,0,0
+Piemonte,Novara,18.1,82.9,0,0
+Piemonte,Torino,108,316,0,0
+Piemonte,Verbano-Cusio-Ossola,0.2,17.5,0,0
+Piemonte,Vercelli,30.2,60.5,0,0
+Puglia,Bari,271.6,228.7,0,0
+Puglia,Barletta-Andria-Trani,121.7,51.6,0,0
+Puglia,Brindisi,421.6,78.7,0,0
+Puglia,Foggia,477.2,100.6,0,0
+Puglia,Lecce,529.7,170.4,0,0
+Puglia,Taranto,285.9,88.8,0,0
+Sardegna,Cagliari,126.9,64.9,0,0
+Sardegna,Nuoro,66.4,71.4,0,0
+Sardegna,Oristano,79.5,60.4,0,0
+Sardegna,Sassari,88.6,117.3,0,0
+Sardegna,Sud Sardegna,107.1,90.2,0,0
+Sicilia,Agrigento,119.8,93.3,0,0
+Sicilia,Caltanissetta,46.7,48.6,0,0
+Sicilia,Catania,86.9,146.3,0,0
+Sicilia,Enna,47.7,27.6,0,0
+Sicilia,Messina,13.7,55.5,0,0
+Sicilia,Palermo,77.9,102.9,0,0
+Sicilia,Ragusa,93.8,121.7,0,0
+Sicilia,Siracusa,124.6,79.9,0,0
+Sicilia,Trapani,71.8,74.1,0,0
+Toscana,Arezzo,78.1,93.9,0,0
+Toscana,Firenze,17.7,97.1,0,0
+Toscana,Grosseto,46.3,38.7,0,0
+Toscana,Livorno,40.1,37.4,0,0
+Toscana,Lucca,16.4,51.3,0,0
+Toscana,Massa Carrara,1.6,22.3,0,0
+Toscana,Pisa,37.5,61.4,0,0
+Toscana,Pistoia,5.4,37.1,0,0
+Toscana,Prato,9.8,70.6,0,0
+Toscana,Siena,19,56.3,0,0
+Trentino Alto Adige,Bolzano,11,239.4,0,0
+Trentino Alto Adige,Trento,7.7,184.6,0,0
+Umbria,Perugia,113.3,240.1,0,0
+Umbria,Terni,66.6,68.5,0,0
+Valle d'Aosta,Aosta,2.1,22.5,0,0
+Veneto,Belluno,6.1,39.9,0,0
+Veneto,Padova,53.1,306.4,0,0
+Veneto,Rovigo,241,82,0,0
+Veneto,Treviso,28.8,326.7,0,0
+Veneto,Venezia,39.1,164.2,0,0
+Veneto,Verona,63.3,330.7,0,0
+Veneto,Vicenza,44.7,269.6,0,0
