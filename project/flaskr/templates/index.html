@@ -1,12 +1,56 @@
-{% extends "base.html" %}
-{% block title %}Start Page{% endblock %}
+{% extends 'base.html' %}
+
 {% block content %}
-  <main role="main" class="inner cover">
-    <h1 class="cover-heading">Renewable Energy<br>Development Scenarios</h1>
-    <p class="lead">The proposed project aims to create an interactive web interface which will be integrated in the RSE S.p.A. dissemination platforms, for supporting future renewable energy development scenarios, which constitutes one of the core activities in RSE. The website will support the computation of the photovoltaic capacity distribution and the expected production in Italy at a province scale for the achievement of the European Green Deal goals. Starting from variable input parameters and spatialized indicators, the interface should allow the spatial and graphical representation of the intermediate and final outputs.
-    </p>
-    <p class="lead">
-      <a href="create" class="btn btn-lg btn-secondary">Start Computing</a>
-    </p>
-  </main>
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-5">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="text-center my-5">
+                            <h1 class="display-5 fw-bolder text-white mb-2">Renewable energy development scenarios</h1>
+                            <p class="lead text-white-50 mb-4">A powerful web tool to display photovoltaic production at a province scale for the achievement of the target renewable energy goals</p>
+                            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="/create/">Get Started</a>
+                                <a class="btn btn-outline-light btn-lg px-4" href="#features">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Features section-->
+        <section class="py-5 border-bottom" id="features">
+            <div class="container px-5 my-5">
+                <div class="row gx-5">
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-github"></i></div>
+                        <h2 class="h4 fw-bolder">Source Code</h2>
+                        <p>The project is available on github, and can be downloaded and forked anytime. The repository contains the manual with the installation guide</p>
+                        <a class="text-decoration-none" href="https://github.com/AlessandroCogollo/Computer-Engineering-Project-2022">
+                            See on github
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-brightness-high"></i></div>
+                        <h2 class="h4 fw-bolder">Research on Energy System</h2>
+                        <p>Get to know more about RSE (Ricerca per il Sistema Energetico) projects, vision and mission on their website</p>
+                        <a class="text-decoration-none" href="https://www.rse-web.it/">
+                            RSE website
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-bullseye"></i></div>
+                        <h2 class="h4 fw-bolder">Project Objectives</h2>
+                        <p>This tools is developed as a Computer Engineering Project; discover more about the project, its objectives, scopes and referents</p>
+                        <a class="text-decoration-none" href="https://pii.dei.polimi.it/renewable-energy-development-scenarios/">
+                            Project Website
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 {% endblock %}
+

@@ -35,10 +35,11 @@ class ComputationalModule:
         elif typology == 1:  # get LAND
             indicator_agricultural_added_value = am.base_distribution(data_obj.agricultural_added_value,
                                                                       am.mean(data_obj.agricultural_added_value))
-            for i in range(0, len(indicator_equivalent_hours_pv)):
-                math.exp(params.WeightEquivalentHoursPV * math.log(indicator_equivalent_hours_pv[i])
-                         - params.WeightAgriculturalAddedValue * math.log(indicator_agricultural_added_value[i]))
-                return synthetical_indicator
+            for i in range(0, len(indicator_agricultural_added_value)):
+                synthetical_indicator.append(
+                    math.exp(params.WeightEquivalentHoursPV * math.log(indicator_equivalent_hours_pv[i])
+                             - params.WeightAgriculturalAddedValue * math.log(indicator_agricultural_added_value[i])))
+            return synthetical_indicator
         else:  # TODO: return ERROR
             print("Error")
 

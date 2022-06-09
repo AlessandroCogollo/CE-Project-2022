@@ -54,6 +54,7 @@ class DatasModule:
         for col in df:
             if col != 'Province':
                 hourly_producibility.append(df[col].sum())
+
         self.hourly_producibility = hourly_producibility
 
         # close connection

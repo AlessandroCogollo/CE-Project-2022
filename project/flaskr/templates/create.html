@@ -1,44 +1,170 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Add a New Message {% endblock %}</h1>
-    <form method="post">
-        <label>Goals</label>
-        <br>
-        <input type="number" name="ScenarioPVpower"
-               placeholder="1"
-               value="{{ request.form['ScenarioPVpower'] }}"></input>
-        <input type="number" name="PercentagePVtargetROOF"
-               placeholder="1"
-               value="{{ request.form['PercentagePVtargetROOF'] }}"></input>
-        <br>
-        <label>Coefficients</label>
-        <br>
-        <input type="number" name="PVtargetROOF"
-               placeholder="1"
-               value="{{ request.form['PVtargetROOF'] }}"></input>
-        <input type="number" name="PVbaseROOF"
-               placeholder="1"
-               value="{{ request.form['PVbaseROOF'] }}"></input>
-        <input type="number" name="PVtargetLAND"
-               placeholder="1"
-               value="{{ request.form['PVtargetLAND'] }}"></input>
-        <br>
-        <label>Advance Weight [0]</label>
-        <br>
-        <input type="number" name="WeightEquivalentHoursPV"
-               placeholder="1"
-               value="{{ request.form['WeightEquivalentHoursPV'] }}"></input>
-        <input type="number" name="WeightDomesticConsumptionPerCapita"
-               placeholder="1"
-               value="{{ request.form['WeightDomesticConsumptionPerCapita'] }}"></input>
-        <input type="number" name="WeightTaxableIncomePerCapita"
-               placeholder="1"
-               value="{{ request.form['WeightTaxableIncomePerCapita'] }}"></input>
-        <input type="number" name="WeightAgriculturalAddedValue"
-               placeholder="1"
-               value="{{ request.form['WeightAgriculturalAddedValue'] }}"></input>
-        <br>
-        <button type="submit">Submit</button>
-    </form>
+<section class="py-2" id="features">
+    <div class="row px-5 my-2">
+        <div class="form-group row px-4 py-3">
+            <h1 class="col-3">{% block title %} Parameters {% endblock %}</h1>
+            <div class="col-6 py-2">
+                {% if form.errors %}
+                    <div class="alert alert-warning" role="alert" style="
+                        line-height:37px;
+                        padding:0px 18px;"
+                    >
+                        {% for field_name, field_errors in form.errors|dictsort if field_errors %}
+                            {% for error in field_errors %}
+                                {{ form[field_name].label }}: {{ error }}
+                            {% endfor %}
+                        {% endfor %}
+
+                    </div>
+                {% endif %}
+            </div>
+            <div class="col-2 py-2">
+                <input type="button" class="w-100 btn btn-success" id="tglbtn" value="Toggle Form">
+            </div>
+            <div class="col-sm-1 py-2">
+                <div class="w-100 btn btn-light" id="infobtn">
+                    <i class="bi bi-info-square-fill"></i>
+                </div>
+            </div>
+        </div>
+        <div class="card col m-2 gx-5 p-3 shadow">
+            <form method="POST" action="" id="firstForm">
+                {{ form.csrf_token }}
+                <div class="form-group row p-1">
+                    <label class="w-75 col-form-label">{{ form.ScenarioPVpower.label }}</label>
+                    <div class="w-25">
+                        {{ form.ScenarioPVpower(class_="form-control") }}
+                    </div>
+                </div>
+                <div class="form-group row p-1">
+                    <label class="w-75 col-form-label">{{ form.PercentagePVtargetROOF.label }}</label>
+                    <div class="w-25">
+                        {{ form.PercentagePVtargetROOF(class_="form-control") }}
+                    </div>
+                </div>
+                <div class="form-group row p-1">
+                    <label class="w-75 col-form-label">{{ form.PVtargetROOF.label }}</label>
+                    <div class="w-25">
+                        {{ form.PVtargetROOF(class_="form-control") }}
+                    </div>
+                </div>
+                <div class="form-group row p-1">
+                    <label class="w-75 col-form-label">{{ form.PVbaseROOF.label }}</label>
+                    <div class="w-25">
+                        {{ form.PVbaseROOF(class_="form-control") }}
+                    </div>
+                </div>
+                <div class="form-group row p-1">
+                    <label class="w-75 col-form-label">{{ form.PVtargetLAND.label }}</label>
+                    <div class="w-25">
+                        {{ form.PVtargetLAND(class_="form-control") }}
+                    </div>
+                </div>
+                <div class="form-group row p-1">
+                    <label class="w-75 col-form-label">{{ form.WeightEquivalentHoursPV.label }}</label>
+                    <div class="w-25">
+                        {{ form.WeightEquivalentHoursPV(class_="form-control") }}
+                    </div>
+                </div>
+                <div class="form-group row p-1">
+                    <label class="w-75 col-form-label">{{ form.WeightDomesticConsumptionPerCapita.label }}</label>
+                    <div class="w-25">
+                        {{ form.WeightDomesticConsumptionPerCapita(class_="form-control") }}
+                    </div>
+                </div>
+                <div class="form-group row p-1">
+                    <label class="w-75 col-form-label">{{ form.WeightTaxableIncomePerCapita.label }}</label>
+                    <div class="w-25">
+                        {{ form.WeightTaxableIncomePerCapita(class_="form-control") }}
+                    </div>
+                </div>
+                <div class="form-group row p-1">
+                    <label class="w-75 col-form-label">{{ form.WeightAgriculturalAddedValue.label }}</label>
+                    <div class="w-25">
+                        {{ form.WeightAgriculturalAddedValue(class_="form-control") }}
+                    </div>
+                </div>
+                <!---
+                <div class="form-group row p-1">
+                    <div class="w-100">
+                        {{ form.submit(class_="w-100 btn btn-primary") }}
+                    </div>
+                </div>
+                ---->
+            </form>
+        </div>
+        <div class="card col m-2 gx-5 p-3 shadow" >
+            <!------->
+            <form method="POST" action="" id="secondForm">
+                {{ form.csrf_token }}
+                <div class="form-group row p-1">
+                <label class="w-75 col-form-label">{{ form.ScenarioPVpower.label }}</label>
+                    <div class="w-25">
+                        {{ form.ScenarioPVpower(class_="form-control") }}
+                    </div>
+                </div>
+                <div class="form-group row p-1">
+                    <label class="w-75 col-form-label">{{ form.PercentagePVtargetROOF.label }}</label>
+                    <div class="w-25">
+                        {{ form.PercentagePVtargetROOF(class_="form-control") }}
+                    </div>
+                </div>
+                <div class="form-group row p-1">
+                    <label class="w-75 col-form-label">{{ form.PVtargetROOF.label }}</label>
+                    <div class="w-25">
+                        {{ form.PVtargetROOF(class_="form-control") }}
+                    </div>
+                </div>
+                <div class="form-group row p-1">
+                    <label class="w-75 col-form-label">{{ form.PVbaseROOF.label }}</label>
+                    <div class="w-25">
+                        {{ form.PVbaseROOF(class_="form-control") }}
+                    </div>
+                </div>
+                <div class="form-group row p-1">
+                    <label class="w-75 col-form-label">{{ form.PVtargetLAND.label }}</label>
+                    <div class="w-25">
+                        {{ form.PVtargetLAND(class_="form-control") }}
+                    </div>
+                </div>
+                <div class="form-group row p-1">
+                    <label class="w-75 col-form-label">{{ form.WeightEquivalentHoursPV.label }}</label>
+                    <div class="w-25">
+                        {{ form.WeightEquivalentHoursPV(class_="form-control") }}
+                    </div>
+                </div>
+                <div class="form-group row p-1">
+                    <label class="w-75 col-form-label">{{ form.WeightDomesticConsumptionPerCapita.label }}</label>
+                    <div class="w-25">
+                        {{ form.WeightDomesticConsumptionPerCapita(class_="form-control") }}
+                    </div>
+                </div>
+                <div class="form-group row p-1">
+                    <label class="w-75 col-form-label">{{ form.WeightTaxableIncomePerCapita.label }}</label>
+                    <div class="w-25">
+                        {{ form.WeightTaxableIncomePerCapita(class_="form-control") }}
+                    </div>
+                </div>
+                <div class="form-group row p-1">
+                    <label class="w-75 col-form-label">{{ form.WeightAgriculturalAddedValue.label }}</label>
+                    <div class="w-25">
+                        {{ form.WeightAgriculturalAddedValue(class_="form-control") }}
+                    </div>
+                </div>
+                <!--
+                <div class="form-group row p-1">
+                    <div class="w-100">
+                        {{ form.submit(class_="w-100 btn btn-primary") }}
+                    </div>
+                </div>
+                --->
+            </form>
+        </div>
+        <div class="row py-3">
+            <div class="w-50 mx-auto btn btn-primary" id="submitForm">Submit</div>
+        </div>
+    </div>
+</section>
 {% endblock %}

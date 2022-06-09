@@ -1,0 +1,265 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+%% Overleaf %% Software Manual and Technical Document Template %% %% This
+ provides an example of a software manual created in Overleaf.
+\end_layout
+
+\begin_layout Standard
+
+\backslash
+documentclass{ol-softwaremanual}
+\end_layout
+
+\begin_layout Standard
+% Packages used in this example 
+\backslash
+usepackage{graphicx} % for including images 
+\backslash
+usepackage{microtype} % for typographical enhancements 
+\backslash
+usepackage{minted} % for code listings 
+\backslash
+usepackage{amsmath} % for equations and mathematics 
+\backslash
+setminted{style=friendly,fontsize=
+\backslash
+small} 
+\backslash
+renewcommand{
+\backslash
+listoflistingscaption}{List of Code Listings} 
+\backslash
+usepackage{hyperref} % for hyperlinks 
+\backslash
+usepackage[a4paper,top=4.2cm,bottom=4.2cm,left=3.5cm,right=3.5cm]{geometry}
+ % for setting page size and margins
+\end_layout
+
+\begin_layout Standard
+% Custom macros used in this example document 
+\backslash
+newcommand{
+\backslash
+doclink}[2]{
+\backslash
+href{#1}{#2}
+\backslash
+footnote{
+\backslash
+url{#1}}} 
+\backslash
+newcommand{
+\backslash
+cs}[1]{
+\backslash
+texttt{
+\backslash
+textbackslash #1}}
+\end_layout
+
+\begin_layout Standard
+% Frontmatter data; appears on title page 
+\backslash
+title{Technical Document 
+\backslash
+
+\backslash
+Template} 
+\backslash
+version{2.3.1} 
+\backslash
+author{Overleaf} 
+\backslash
+softwarelogo{
+\backslash
+includegraphics[width=8cm]{logo}}
+\end_layout
+
+\begin_layout Standard
+
+\backslash
+begin{document}
+\end_layout
+
+\begin_layout Standard
+
+\backslash
+maketitle
+\end_layout
+
+\begin_layout Standard
+
+\backslash
+tableofcontents 
+\backslash
+listoflistings 
+\backslash
+newpage
+\end_layout
+
+\begin_layout Standard
+
+\backslash
+section{Introduction}
+\end_layout
+
+\begin_layout Standard
+This document is an example of a software manual created using 
+\backslash
+LaTeX
+\backslash
+ and Overleaf.
+ It provides a nice clean format for producing this type of technical document.
+ 
+\end_layout
+
+\begin_layout Standard
+Simply start writing your document and use the Recompile button to view
+ the updated PDF preview.
+ Examples of commonly used commands and features can be found in the sections
+ below, to help you get started.
+\end_layout
+
+\begin_layout Standard
+To change the logo shown on the front page, simply upload your own logo
+ image file (via the file-tree menu) to replace the default logo.pdf file.
+ 
+\end_layout
+
+\begin_layout Standard
+Once you're familiar with the editor, you can find various project settings
+ in the Overleaf menu, accessed via the button in the very top left of the
+ editor.
+ To view tutorials, user guides, and further documentation, please visit
+ our 
+\backslash
+doclink{https://www.overleaf.com/learn}{help library}.
+ If you haven't used 
+\backslash
+LaTeX
+\backslash
+ before, our 
+\backslash
+doclink{https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes}{Learn
+ 
+\backslash
+LaTeX
+\backslash
+ in 30 minutes} tutorial is an excellent place to start.
+\end_layout
+
+\begin_layout Standard
+For large documents, it can be useful to split the document into multiple
+ source files.
+ Double-clicking on text in Overleaf's PDF preview will take you directly
+ to the corresponding code in the editor.
+\end_layout
+
+\begin_layout Standard
+
+\backslash
+section{Including code samples}
+\end_layout
+
+\begin_layout Standard
+
+\backslash
+input{code-samples}
+\end_layout
+
+\begin_layout Standard
+
+\backslash
+section{Some further examples to get started}
+\end_layout
+
+\begin_layout Standard
+
+\backslash
+input{further-examples}
+\end_layout
+
+\begin_layout Standard
+
+\backslash
+end{document}
+\end_layout
+
+\end_body
+\end_document

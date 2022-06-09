@@ -32,7 +32,7 @@ class OutputValues:
         pv_power_target_land = arr.array("d", [])
         for i in range(len(self.data_obj.installed_power_LAND)):
             pv_power_target_land.append(self.data_obj.installed_power_LAND[i] +
-                                        cm.get_additional_power_distribution(self.data_obj, self.params, 0)[i])
+                                        cm.get_additional_power_distribution(self.data_obj, self.params, 1)[i])
         return pv_power_target_land
 
     def get_pv_power_target_roof(self):

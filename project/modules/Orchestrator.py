@@ -5,7 +5,7 @@ from project.utils.Parameters import Parameters
 class Orchestrator:
 
 
-    def __init__(self):
+    def __init__(self, params):
         self.data_obj = DatasModule()
-        self.params = Parameters(1, 1, 1, 1, 1, 1, 1, 1, 1)
+        self.params = params
         self.output_obj = OutputValues(self.data_obj, self.params)
