@@ -1,29 +1,25 @@
 import psycopg2
+from os import environ
+from sqlalchemy import create_engine, select
 
 
 def get_connection(self):
-    self.connection = psycopg2.connect(dbname='envProjDB',
-                                       user='alessandro',
-                                       password='Aleric000*',
-                                       host='localhost',
-                                       port='5432')
-    self.connection.autocommit = True  # Ensure data is added to the database immediately after write commands
-    return self.connection
+    #db_uri = environ.get('postgres+psycopg2://alessandro:Aleric000*@localhost:5432/envProjDB')
+    self.engine = create_engine("postgresql+psycopg2://alessandro:Aleric000*@localhost:5432/envProjDB", echo=False)
+    return self.engine
 
 
 def get_cursor(self):
-    self.cursor = self.connection.cursor()
-    self.cursor.execute('SELECT %s as connected;', ('Connection to postgres successful!',))
-    print(self.cursor.fetchone())
-    return self.cursor
+    self.connection = self.engine.connect()
+
+    return self.connection
 
 
 def close_connection(self):
-    self.cur.close()
     self.connection.close()
 
 
 def set_query(arg, table, cur):
-    cur.execute("""SELECT """ + table + """.""" + arg + """ FROM """ + table)
-    array_query = cur.fetchall()
+    tobefetched = cur.execute("""SELECT """ + table + """.""" + arg + """ FROM """ + table)
+    array_query = tobefetched.fetchall()
     return array_query

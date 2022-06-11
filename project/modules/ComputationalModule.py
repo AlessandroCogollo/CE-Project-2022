@@ -12,8 +12,9 @@ class ComputationalModule:
             return am.base_distribution(data_obj.built_surface, am.sum_array(data_obj.built_surface))
         elif typology == 1:  # get LAND
             return am.base_distribution(data_obj.arable_land_area, am.sum_array(data_obj.arable_land_area))
-        else:  # TODO: return ERROR
-            print("Error")
+        else:
+            print("---- invalid typology (not LAND nor ROOF) ----")
+            return
 
     @staticmethod
     def get_synthetical_indicator(data_obj, params, typology):
@@ -40,8 +41,9 @@ class ComputationalModule:
                     math.exp(params.WeightEquivalentHoursPV * math.log(indicator_equivalent_hours_pv[i])
                              - params.WeightAgriculturalAddedValue * math.log(indicator_agricultural_added_value[i])))
             return synthetical_indicator
-        else:  # TODO: return ERROR
-            print("Error")
+        else:
+            print("---- invalid typology (not LAND nor ROOF) ----")
+            return
 
     @staticmethod
     def get_final_distribution(data_obj, params, typology):
@@ -63,8 +65,9 @@ class ComputationalModule:
             percentage_pv_target_land = 1 - params.PercentagePVtargetROOF
             percentage_additional_land = percentage_pv_target_land - percentage_pv_installed_land - percentage_pv_additional_land
             return params.ScenarioPVpower * percentage_additional_land
-        else:  # TODO: return ERROR
-            print("Error")
+        else:
+            print("---- invalid typology (not LAND nor ROOF) ----")
+            return
 
     @staticmethod
     def get_additional_power_distribution(data_obj, params, typology):
