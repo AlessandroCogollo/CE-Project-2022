@@ -1,5 +1,0 @@
-\contentsline {section}{\numberline {1}Introducción}{2}{section.1}%
-\contentsline {section}{\numberline {2}Fundamento}{2}{section.2}%
-\contentsline {section}{\numberline {3}Procedimiento}{2}{section.3}%
-\contentsline {section}{\numberline {4}Conclusiones}{3}{section.4}%
-\contentsline {section}{\numberline {5}Bibliografía}{3}{section.5}%
