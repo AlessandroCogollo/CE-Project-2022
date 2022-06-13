@@ -125,3 +125,6 @@ def mapplot():
 def showmap(token):
     garbage_sonar.main()
     return render_template("/plots/" + token + ".html")
+
+if __name__ == '__main__':
+    app.run()
