@@ -6,9 +6,6 @@ charset-normalizer==2.0.12
 click==8.1.2
 click-plugins==1.1.1
 cligj==0.7.2
-diagnostic-analysis==1.11.0
-diagnostic-common-diagnostics==1.11.0
-diagnostic-updater==1.11.0
 Fiona==1.8.21
 firstmodule==1.0
 Flask==2.1.1
