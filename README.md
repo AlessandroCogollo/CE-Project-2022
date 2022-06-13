@@ -58,10 +58,6 @@
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
     </li>
     <li><a href="#usage">Features</a></li>
     <li><a href="#contributing">Contributing</a></li>
@@ -129,7 +125,7 @@ Obviously, you need python3 installed on your computer; to install it, follow th
 
 
 ### Deploying With Heroku 
-[Heroku](https://www.heroku.com/) is a service that allows you to deploy this Python web application so that anyone with the link will be able to use it.#### Prerequisites
+[Heroku](https://www.heroku.com/) is a service that allows you to deploy this Python web application so that anyone with the link will be able to use it.
 Obviously, you need python3 installed on your computer; to install it, follow this guide 
 
 #### Prerequisites
