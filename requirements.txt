@@ -13,7 +13,6 @@ Flask-WTF==1.0.1
 folium==0.12.1.post1
 fonttools==4.33.3
 geopandas==0.10.2
-gps_common==0.3.2
 greenlet==1.1.2
 gunicorn==20.0.4
 idna==3.3
