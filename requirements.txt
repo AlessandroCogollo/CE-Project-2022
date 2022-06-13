@@ -6,8 +6,6 @@ charset-normalizer==2.0.12
 click==8.1.2
 click-plugins==1.1.1
 cligj==0.7.2
-controller-manager==0.19.5
-controller-manager-msgs==0.19.5
 cv-bridge==1.16.0
 cycler==0.11.0
 diagnostic-analysis==1.11.0
