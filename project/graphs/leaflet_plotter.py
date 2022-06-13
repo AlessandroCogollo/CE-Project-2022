@@ -7,7 +7,7 @@ import pandas.io.sql as psql
 import random
 import string
 
-from project.modules.Orchestrator import Orchestrator
+from project.computational.Orchestrator import Orchestrator
 from project.utils import ConnectionHandler
 
 

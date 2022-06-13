@@ -1,5 +1,5 @@
 import array as arr
-from project.modules.ComputationalModule import ComputationalModule as cm
+from project.computational.ComputationalModule import ComputationalModule as cm
 import project.utils.ArithmeticModule as am
 
 

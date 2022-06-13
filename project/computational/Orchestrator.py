@@ -1,4 +1,4 @@
-from project.modules.OutputValuesModule import OutputValues
+from project.computational.OutputValuesModule import OutputValues
 from project.utils.DatasModule import DatasModule
 from project.utils.Parameters import Parameters
 
