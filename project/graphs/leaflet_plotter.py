@@ -125,13 +125,13 @@ def plot(parameters1, parameters2=None):
             print("---- add child (tooltip) ----")
             if left == True:
                 print("---- plotting left map ----")
-                my_map.m1.add_child(tooltip)
-                my_map.m1.keep_in_front(tooltip)
+                my_map.add_child(tooltip)
+                my_map.keep_in_front(tooltip)
                 left = False
             else:
                 print("---- plotting right map ----")
-                my_map.m2.add_child(tooltip)
-                my_map.m2.keep_in_front(tooltip)
+                # my_map.add_child(tooltip)
+                # my_map.keep_in_front(tooltip)
 
     folium.LayerControl().add_to(my_map)
 
