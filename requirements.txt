@@ -37,7 +37,6 @@ requests==2.27.1
 scipy==1.8.0
 seaborn==0.11.2
 six==1.16.0
-smach==2.5.0
 smclib==1.8.6
 SQLAlchemy==1.4.37
 swri-transform-util==2.14.2
