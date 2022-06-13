@@ -1,6 +1,5 @@
 attrs==21.4.0
 bokeh==2.4.2
-bondpy==1.8.6
 branca==0.5.0
 certifi==2021.10.8
 charset-normalizer==2.0.12
@@ -14,7 +13,6 @@ cycler==0.11.0
 diagnostic-analysis==1.11.0
 diagnostic-common-diagnostics==1.11.0
 diagnostic-updater==1.11.0
-dynamic-reconfigure==1.7.2
 Fiona==1.8.21
 firstmodule==1.0
 Flask==2.1.1
@@ -37,7 +35,6 @@ itsdangerous==2.1.2
 Jinja2==3.1.1
 kiwisolver==1.4.2
 MarkupSafe==2.1.1
-matplotlib==3.5.2
 munch==2.5.0
 numpy==1.22.3
 packaging==21.3
