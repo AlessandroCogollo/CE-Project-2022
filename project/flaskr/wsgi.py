@@ -1,4 +1,4 @@
-from project.flaskr.main import app
+from project.flaskr import main
 
 if __name__ == "__main__":
-    app.run()
+    main.run()
