@@ -30,7 +30,7 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">RENEWABLE ENERGY</br>DEVELOPMENT SCENARIOS</h3>
 
   <p align="center">
     An awesome README template to jumpstart your projects!
@@ -100,37 +100,55 @@ For this project Python was choosen as the programming language for this project
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+This project is meant to be deployed as a web app, thus it requires a webserver to work. For development purposes it can be tested locally.
 
-### Prerequisites
+### Local Deployment
+#### Prerequisites
+Obviously, you need python3 installed on your computer; to install it, follow this guide 
+[getting started with Python3](https://docs.python-guide.org/starting/install3/linux/)
+#### Installation
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
-### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. First, clone this repository via HTTPS with
+    ```sh
+   git clone https://github.com/AlessandroCogollo/CompEng-Project2022.git
+   ```
+2. Navigate to the flaskr module, if you're using bash, type
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   cd <your project repository>/project/flaskr
    ```
-3. Install NPM packages
+3. Execute the project
    ```sh
-   npm install
+   flask run
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+    For development purposes, server can be run under `development` mode. To do that, kill flask process using `CTRL^C`, then type: 
+    ```sh
+    export FLASK_ENV="development"
+    flask run
+    ```
+4. Go to `http://127.0.0.1:5000/` and check it out!
+
+
+### Deploying With Heroku 
+[Heroku](https://www.heroku.com/) is a service that allows you to deploy this Python web application so that anyone with the link will be able to use it.#### Prerequisites
+Obviously, you need python3 installed on your computer; to install it, follow this guide 
+
+#### Prerequisites
+
+1. First, create an account to Heroku
+2. Click the button that says `Create New App`. Give your application a name, and click `Create App`
+
+#### Installation
+
+1. First, add this repository to your github doing a `fork`
+2. Choose `GitHub` as deployment method, and connect your account
+3. Search for your forked repository and link it to heroku
+4. Choose `automatic deployment`
+5. Choose the branch to develop (maintained is `main`) and deploy
+
+### Other Hosts
+Plenty of hosting solutions are available to run your application. [Here a guide can be found](https://flask.palletsprojects.com/en/2.1.x/deploying/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 <!-- USAGE EXAMPLES -->
