@@ -12,16 +12,11 @@ Flask==2.1.1
 Flask-WTF==1.0.1
 folium==0.12.1.post1
 fonttools==4.33.3
-genlisp==0.4.18
-genmsg==0.5.16
-gennodejs==2.0.2
-genpy==0.6.15
 geopandas==0.10.2
 gps_common==0.3.2
 greenlet==1.1.2
 gunicorn==20.0.4
 idna==3.3
-image-geometry==1.16.0
 importlib-metadata==4.11.3
 interactive-markers==1.12.0
 itsdangerous==2.1.2
