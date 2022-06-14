@@ -84,7 +84,8 @@ More can be found [here](https://github.com/AlessandroCogollo/CompEng-Project202
 
 For this project Python was choosen as the programming language for this project, since it possesses a broad variety of libraries very well suited to develop custom applications in the field of geospatial analysis. More in depth, the libraries and software used were:
 
-* [Flask](https://flask.palletsprojects.com/en/2.1.x/)  is a web framework built with a small core and easy-to-extend philosophy. It's ideal for a small app like this project.
+* [Flask](https://flask.palletsprojects.com/en/2.1.x/) is a web framework built with a small core and easy-to-extend philosophy. It's ideal for a small app like this project.
+* [Folium](https://python-visualization.github.io/folium/) builds on the data wrangling strengths of the Python ecosystem and the mapping strengths of the leaflet.js library. Manipulate your data in Python, then visualize it in on a Leaflet map via folium.
 * [Pandas](https://pandas.pydata.org/) and [Psycopg2](https://www.psycopg.org/docs/) are flexible and powerful libraries when it comes to operate with data, which were, in this project in particular, used to interrogate the database. 
 * [Bootstrap](https://getbootstrap.com) is powerful, extensible, and feature-packed frontend toolkit used do develop a user interface. There is no need to reinvent the wheel each time!
 * [JQuery](https://jquery.com)
