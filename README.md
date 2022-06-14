@@ -98,6 +98,8 @@ For this project Python was choosen as the programming language for this project
 ## Getting Started
 
 This project is meant to be deployed as a web app, thus it requires a webserver to work. For development purposes it can be tested locally.
+It requires a PostgreSQL database to work, a database dump can be found [here](https://github.com/AlessandroCogollo/CompEng-Project2022/tree/main/docs/database).
+Changing `ConnectionHandler` parameters is required.
 
 ### Local Deployment
 #### Prerequisites
@@ -127,7 +129,6 @@ Obviously, you need python3 installed on your computer; to install it, follow th
 
 ### Deploying With Heroku 
 [Heroku](https://www.heroku.com/) is a service that allows you to deploy this Python web application so that anyone with the link will be able to use it.
-Obviously, you need python3 installed on your computer; to install it, follow this guide 
 
 #### Prerequisites
 
